@@ -1,15 +1,15 @@
-/speckit-constitution Modernize in small, reversible steps. Preserve observable behavior, record unknowns instead of guessing, add tests before replacing legacy dependencies, keep secrets out of code, and require build and test evidence before declaring completion.
+/speckit-constitution Preserve behavior, migrate reversibly, record unknowns, protect secrets, and require tests and a passing build.
 
-/speckit-specify Define the behavior that must remain true when ContosoUniversity's legacy admin notifications are modernized. Cover create, update, and delete notifications for students, courses, instructors, and departments; user-visible message data; retrieval limits; and the rule that notification failure must not fail the business operation. Use existing code as evidence, mark unknowns, and do not choose a cloud technology.
+/speckit-specify Specify notification CRUD behavior for students, courses, instructors, and departments, including message data, retrieval limits, and non-blocking failures. Use code evidence; mark unknowns; stay technology-neutral.
 
-/speckit-clarify Ask only questions that could change behavior or tests: delivery guarantees, ordering, duplicates, timestamp rules, authorization, failure visibility, and whether read state must persist.
+/speckit-clarify Clarify only test-changing unknowns: delivery, ordering, duplicates, timestamps, authorization, failure visibility, and read-state persistence.
 
-/speckit-plan Plan a small, reversible migration from MSMQ to Azure Service Bus for Azure Container Apps. Select and justify a supported .NET LTS, preserve the approved notification contract, use managed identity, isolate the transport behind an interface, add contract tests, and include rollback.
+/speckit-plan Plan a reversible MSMQ-to-Azure Service Bus migration for Azure Container Apps using .NET LTS, managed identity, a transport interface, contract tests, configuration switching, and rollback.
 
-/speckit-tasks Create dependency-ordered tasks for one vertical slice: characterize current behavior, add tests, introduce the transport boundary, add the Service Bus adapter, switch providers through configuration, validate failure behavior, and document rollback.
+/speckit-tasks Create ordered tasks for one slice: characterize and test behavior, add the transport interface and Service Bus adapter, configure switching, test failures, and document rollback.
 
-/speckit-analyze Check that every requirement has a task and test. Flag behavior drift, unsupported assumptions, missing identity or security work, missing rollback, and plan choices that are not traceable to the specification.
+/speckit-analyze Verify every requirement has a task and test; flag drift, assumptions, identity or security gaps, missing rollback, and untraceable choices.
 
-/speckit-implement Implement only the first independently testable task. Run its focused tests and build, show the diff and evidence, then stop.
+/speckit-implement Implement only the first testable task; run focused tests and build, show the diff and evidence, then stop.
 
-/speckit-converge Compare the implementation and test evidence against the approved specification, plan, and tasks. Add only actionable gap tasks and report complete only when they align.
+/speckit-converge Compare code and test evidence with the specification, plan, and tasks; add actionable gaps only and finish when aligned.
